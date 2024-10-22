@@ -11,13 +11,13 @@ public record content(
         String title,
         String desc,
         Status status,
-        Type contentType,
         LocalDateTime datecreated,
-        LocalDateTime dateupdated,
         String url
 
 
 )
 {
+
+
 
 }
