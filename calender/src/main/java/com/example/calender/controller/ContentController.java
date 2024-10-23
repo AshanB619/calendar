@@ -5,7 +5,9 @@ import com.example.calender.model.content;
 import com.example.calender.repository.contentcollectionrepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.swing.text.AbstractDocument;
 import java.lang.reflect.Type;
@@ -27,8 +29,8 @@ public class ContentController {
     }
 
     @GetMapping("/{id}")
-    public Optional<content> findById(@PathVariable Integer id){
-        return repository.findById(id);
+    public content findById(@PathVariable Integer id){
+        return repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"content not found"));
     }
 
 }
