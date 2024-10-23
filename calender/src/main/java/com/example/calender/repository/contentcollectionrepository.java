@@ -5,7 +5,6 @@ import com.example.calender.model.content;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.AbstractDocument;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,24 +12,32 @@ import java.util.Optional;
 
 @Repository
 public class contentcollectionrepository {
-    private final List<content> Content=new ArrayList<>();
+    private final List<content> Contentlist =new ArrayList<>();
 
     public contentcollectionrepository() {
 
     }
 
     public List<content> findAll() {
-        return Content;
+        return Contentlist;
     }
 
     public Optional<content> findById(int id) {
-        return Content.stream().filter(c -> c.id().equals(id)).findFirst();
+        return Contentlist.stream().filter(c -> c.id().equals(id)).findFirst();
+    }
+
+
+
+    public void save(content content) {
+         Contentlist.add(content);
     }
 
     @PostConstruct
     public void init(){
-        content c=new content(1,"ashan","hello", Status.IDEA, LocalDateTime.now(),"");
-        Content.add(c);
+        content content=new content(1,"ashan","hello", Status.IDEA, LocalDateTime.now(),"");
+        Contentlist.add(content);
 
     }
+
+
 }

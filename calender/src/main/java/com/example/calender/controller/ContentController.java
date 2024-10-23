@@ -33,4 +33,10 @@ public class ContentController {
         return repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"content not found"));
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("")
+    public void create(@RequestBody content content){
+        repository.save(content);
+    }
+
 }

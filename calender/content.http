@@ -1,0 +1,22 @@
+### find all content
+GET http://localhost:8080/api/content
+
+
+### get content by id
+GET http://localhost:8080/api/content
+
+### create new content
+POST http://localhost:8080/api/content
+Content-Type: application/json
+
+
+ {
+  "id": 2,
+  "title": "inupa",
+  "desc": "hello",
+  "status": "IDEA",
+  "datecreated": "2024-10-23T07:37:26.4782471",
+  "url": ""
+ }
+
+
