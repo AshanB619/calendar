@@ -29,6 +29,7 @@ public class contentcollectionrepository {
 
 
     public void save(content content) {
+         Contentlist.removeIf(c -> c.id().equals(content.id()));
          Contentlist.add(content);
     }
 
@@ -40,4 +41,8 @@ public class contentcollectionrepository {
     }
 
 
+    public boolean existByid(Integer id) {
+        return Contentlist.stream().filter(c -> c.id().equals(id)).count() == 1;
+
+    }
 }

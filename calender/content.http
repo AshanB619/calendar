@@ -18,5 +18,18 @@ Content-Type: application/json
   "datecreated": "2024-10-23T07:37:26.4782471",
   "url": ""
  }
+### updateing existing content
+PUT http://localhost:8080/api/content/1
+Content-Type: application/json
+
+
+{
+  "id": 1,
+  "title": "inupawe",
+  "desc": "hello",
+  "status": "IDEA",
+  "datecreated": "2024-10-23T07:37:26.4782471",
+  "url": "http://localhost:8080?my-first-blog"
+}
 
 
