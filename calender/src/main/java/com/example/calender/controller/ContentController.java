@@ -48,4 +48,10 @@ public class ContentController {
         repository.save(Content);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id){
+        repository.delete(id);
+    }
+
 }
