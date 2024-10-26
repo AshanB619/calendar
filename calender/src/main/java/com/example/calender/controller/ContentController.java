@@ -4,6 +4,7 @@ import com.example.calender.model.Status;
 import com.example.calender.model.content;
 import com.example.calender.repository.contentcollectionrepository;
 import jakarta.annotation.PostConstruct;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class ContentController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    public void create(@RequestBody content content){
+    public void create(@Valid @RequestBody content content){
         repository.save(content);
     }
 

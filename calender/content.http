@@ -12,7 +12,7 @@ Content-Type: application/json
 
  {
   "id": 2,
-  "title": "inupa",
+  "title": "",
   "desc": "hello",
   "status": "IDEA",
   "datecreated": "2024-10-23T07:37:26.4782471",
