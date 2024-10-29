@@ -2,6 +2,7 @@ package com.example.calender.controller;
 
 import com.example.calender.model.Status;
 import com.example.calender.model.content;
+import com.example.calender.repository.ContentRepository;
 import com.example.calender.repository.contentcollectionrepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
@@ -20,9 +21,9 @@ import java.util.Optional;
 @RequestMapping("/api/content")
 @CrossOrigin
 public class ContentController {
-    private final contentcollectionrepository repository;
+    private final ContentRepository repository;
 
-    public ContentController(contentcollectionrepository repository) {
+    public ContentController(ContentRepository repository) {
         this.repository = repository;
     }
     @GetMapping("")
@@ -44,7 +45,7 @@ public class ContentController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     public void update(@RequestBody content Content, @PathVariable Integer id){
-        if (!repository.existByid(id)){
+        if (!repository.existsById(id)){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"content not found");
         }
         repository.save(Content);
@@ -53,7 +54,7 @@ public class ContentController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id){
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
 }
