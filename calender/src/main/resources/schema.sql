@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS Content (
     PRIMARY KEY (id)
     );
 
-INSERT INTO Content(title,desc,status,date_created)
-VALUES ('hello ashan','hi nuwandi','IDEA',CURRENT_TIMESTAMP());
+--INSERT INTO Content(title,desc,status,date_created)
+--VALUES ('hello ashan','hi nuwandi','IDEA',CURRENT_TIMESTAMP());

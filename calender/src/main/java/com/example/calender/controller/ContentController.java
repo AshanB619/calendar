@@ -28,6 +28,7 @@ public class ContentController {
     }
     @GetMapping("")
     public List<content>findAll(){
+
         return repository.findAll();
     }
 
